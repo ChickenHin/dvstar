@@ -1,10 +1,7 @@
 name: CMake
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch: 
 
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
@@ -39,8 +36,8 @@ jobs:
       working-directory: ${{github.workspace}}/build/tests
       run: ./kmer_tests && ./similarity_pruning_tests && ./support_pruning_tests
     
-    - uses: actions/upload-artifact@v4
-      with:
-        name: upload build_vlmc artifact
-        path:  ${{github.workspace}}/build/dvstar
+    # - uses: actions/upload-artifact@v4
+    #   with:
+    #     name: upload build_vlmc artifact
+    #     path:  ${{github.workspace}}/build/dvstar
       
